@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:12.12
+        restart: always
+        environment:
+            - POSTGRES_USER=milon27
+            - POSTGRES_PASSWORD=myPassWord
+            - POSTGRES_DB=my_db
+        ports:
+            - 5432:5432
+        volumes:
+            - db_vol:/var/lib/postgresql/data
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=pg@g.com
+            - PGADMIN_DEFAULT_PASSWORD=1234
+        ports:
+            - 5050:80
+    # redis:
+    #   container_name: redis
+    #   image: redis:7.0.7-alpine
+    #   restart: always
+    #   volumes:
+    #     - redis_vol:/data
+    #   ports:
+    #     - 6379:6379
+
+    # api:
+    #   container_name: api
+    #   build:
+    #     context: .
+    #     dockerfile: Dockerfile
+    #     target: dev
+    #   # depends_on:
+    #   #   - postgres
+    #   #   - redis
+    #   ports:
+    #     - 4000:4000
+    #volumes(root label)
+volumes:
+    db_vol: {}
+    # redis_vol: {}

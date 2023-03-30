@@ -1,0 +1,84 @@
+//  visualize schema here: https://prismaliser.app/
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["filteredRelationCount"] //"fullTextSearch", "fullTextIndex", 
+}
+
+// models 
+
+model User {
+    id          String    @id @default(cuid())
+    fullName    String
+    email       String    @unique
+    password    String
+    gender      Gender    @default(other)
+    avatar      String? // only file name
+    city        String
+    deviceToken String?
+    dob         DateTime?
+
+    isEmailVerified Boolean @default(false)
+    isActive        Boolean @default(true)
+    isVerified      Boolean @default(false)
+
+    lastLoggedIn DateTime @default(now())
+    createdAt    DateTime @default(now()) // @db.DateTime(0)
+    updatedAt    DateTime @default(now()) @updatedAt //@db.DateTime(0)
+
+    role     Role   @relation(fields: [roleSlug], references: [slug], onUpdate: Cascade, onDelete: Restrict)
+    roleSlug String @db.VarChar(50)
+
+    documents Document[]
+
+    @@map("user")
+}
+
+enum Gender {
+    male
+    female
+    other
+}
+
+model Document {
+    id               String @id @default(cuid())
+    documentName     String @db.VarChar(100) // e.g. nation id card
+    documentFileName String @db.VarChar(100) //s3 file name e.g. folder/uid-national-id.pdf
+    User             User   @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+    userId           String
+
+    @@map("document")
+}
+
+model Role {
+    slug         String  @id @unique @db.VarChar(50)
+    title        String  @db.VarChar(50)
+    description  String  @default("Description about the role.")
+    canAccessCms Boolean @default(false)
+
+    createdAt   DateTime     @default(now()) //@db.DateTime(0)
+    updatedAt   DateTime     @default(now()) @updatedAt //@db.DateTime(0)
+    user        User[]
+    permissions Permission[]
+
+    @@map("role")
+}
+
+model Permission {
+    id        String  @id @default(cuid())
+    modelName String
+    read      Boolean @default(true)
+    create    Boolean @default(false)
+    update    Boolean @default(false)
+    delete    Boolean @default(false)
+    roleSlug  String
+    role      Role    @relation(fields: [roleSlug], references: [slug], onUpdate: Cascade, onDelete: Cascade)
+
+    @@unique([modelName, roleSlug])
+    @@map("permission")
+}

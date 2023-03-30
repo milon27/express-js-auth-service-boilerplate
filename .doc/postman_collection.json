@@ -1,0 +1,393 @@
+{
+    "info": {
+        "_postman_id": "c1e0af24-5bd6-443f-9340-74ca2d501bd0",
+        "name": "Auth MS",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "25944720"
+    },
+    "item": [
+        {
+            "name": "login",
+            "item": [
+                {
+                    "name": "login with email",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"demo@g.com\",\r\n    \"password\": \"1234567\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/api/auth/login/email",
+                            "host": ["{{url}}"],
+                            "path": ["api", "auth", "login", "email"]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "login local",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"identifier\": \"demo@g.com\",\r\n    \"password\": \"1234567\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/api/auth/login/local",
+                                    "host": ["{{url}}"],
+                                    "path": ["api", "auth", "login", "local"]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "Express"
+                                },
+                                {
+                                    "key": "Vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "Set-Cookie",
+                                    "value": "accessTokenKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsZnRneTk4YjAwMDBqN244dmNqM3o3OGYiLCJyb2xlIjp7InNsdWciOiJjdXN0b21lciIsInRpdGxlIjoiY3VzdG9tZXIiLCJkZXNjcmlwdGlvbiI6IkRlc2NyaXB0aW9uIGFib3V0IHRoZSByb2xlLiIsImNhbkFjY2Vzc0NtcyI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDMtMjlUMDk6MTI6NTIuMjgzWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMjlUMDk6MTI6NTIuMjgzWiIsInBlcm1pc3Npb25zIjpbXX0sImlhdCI6MTY4MDA4MTM2NywiZXhwIjoxNjgwMDgxOTY3LCJpc3MiOiJtaWxvbjI3In0.15XQ4g1S3TKukAYbUk8AQN2PQaUSdHuyaIfj4KOQ1ao; Path=/"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "Content-Length",
+                                    "value": "725"
+                                },
+                                {
+                                    "key": "ETag",
+                                    "value": "W/\"2d5-ErNdPbwfKZnl42mqFuYOXnvQNg8\""
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 29 Mar 2023 09:16:07 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Keep-Alive",
+                                    "value": "timeout=5"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"id\": \"clftgy98b0000j7n8vcj3z78f\",\n    \"role\": {\n        \"slug\": \"customer\",\n        \"title\": \"customer\",\n        \"description\": \"Description about the role.\",\n        \"canAccessCms\": false,\n        \"createdAt\": \"2023-03-29T09:12:52.283Z\",\n        \"updatedAt\": \"2023-03-29T09:12:52.283Z\",\n        \"permissions\": []\n    },\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsZnRneTk4YjAwMDBqN244dmNqM3o3OGYiLCJyb2xlIjp7InNsdWciOiJjdXN0b21lciIsInRpdGxlIjoiY3VzdG9tZXIiLCJkZXNjcmlwdGlvbiI6IkRlc2NyaXB0aW9uIGFib3V0IHRoZSByb2xlLiIsImNhbkFjY2Vzc0NtcyI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDMtMjlUMDk6MTI6NTIuMjgzWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMjlUMDk6MTI6NTIuMjgzWiIsInBlcm1pc3Npb25zIjpbXX0sImlhdCI6MTY4MDA4MTM2NywiZXhwIjoxNjgwMDgxOTY3LCJpc3MiOiJtaWxvbjI3In0.15XQ4g1S3TKukAYbUk8AQN2PQaUSdHuyaIfj4KOQ1ao\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "continue with google",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"idToken\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxx\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/api/auth/login/google",
+                            "host": ["{{url}}"],
+                            "path": ["api", "auth", "login", "google"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "register",
+            "item": [
+                {
+                    "name": "register",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"fullName\": \"demo2\",\n    \"email\": \"demo2@g.com\",\n    \"password\": \"1234567\",\n    \"city\": \"a city\",\n    \"avatar\": \"url of the file from s3 (optional)\",\n    \"dob\": \"2023-03-30T07:59:47.833Z\",\n    \"deviceToken\": \"token-from-firebase-for-push-notification(optional)\",\n    \"gender\": \"male\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{url}}/api/auth/register",
+                            "host": ["{{url}}"],
+                            "path": ["api", "auth", "register"]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "register",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"fullName\": \"demo2\",\n    \"email\": \"demo2@g.com\",\n    \"password\": \"1234567\",\n    \"city\": \"a city\",\n    \"avatar\": \"url of the file from s3 (optional)\",\n    \"dob\": \"2023-03-30T07:59:47.833Z\",\n    \"deviceToken\": \"token-from-firebase-for-push-notification(optional)\",\n    \"gender\": \"male\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/api/auth/register",
+                                    "host": ["{{url}}"],
+                                    "path": ["api", "auth", "register"]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "Express"
+                                },
+                                {
+                                    "key": "Vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "Content-Length",
+                                    "value": "1124"
+                                },
+                                {
+                                    "key": "ETag",
+                                    "value": "W/\"464-zSW5CShRzK4j42mpjZNWTNI7Hn0\""
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Thu, 30 Mar 2023 08:47:12 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Keep-Alive",
+                                    "value": "timeout=5"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"User created successfully\",\n    \"count\": 1,\n    \"response\": {\n        \"user\": {\n            \"id\": \"clfuvh3hk0002j7yw18pz516y\",\n            \"fullName\": \"demo2\",\n            \"email\": \"demo2@g.com\",\n            \"gender\": \"male\",\n            \"avatar\": \"url of the file from s3 (optional)\",\n            \"city\": \"a city\",\n            \"deviceToken\": \"token-from-firebase-for-push-notification(optional)\",\n            \"dob\": \"2023-03-30T07:59:47.833Z\",\n            \"isEmailVerified\": false,\n            \"isActive\": true,\n            \"isVerified\": false,\n            \"lastLoggedIn\": \"2023-03-30T08:47:12.098Z\",\n            \"createdAt\": \"2023-03-30T08:47:12.098Z\",\n            \"updatedAt\": \"2023-03-30T08:47:12.098Z\",\n            \"roleSlug\": \"customer\",\n            \"role\": {\n                \"slug\": \"customer\",\n                \"title\": \"customer\",\n                \"description\": \"customers\",\n                \"canAccessCms\": false,\n                \"createdAt\": \"2023-03-30T07:59:47.833Z\",\n                \"updatedAt\": \"2023-03-30T07:59:47.833Z\",\n                \"permissions\": []\n            }\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsZnV2aDNoazAwMDJqN3l3MThwejUxNnkiLCJyb2xlIjp7InNsdWciOiJjdXN0b21lciIsInRpdGxlIjoiY3VzdG9tZXIiLCJkZXNjcmlwdGlvbiI6ImN1c3RvbWVycyIsImNhbkFjY2Vzc0NtcyI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDMtMzBUMDc6NTk6NDcuODMzWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMzBUMDc6NTk6NDcuODMzWiIsInBlcm1pc3Npb25zIjpbXX0sImlhdCI6MTY4MDE2NjAzMn0.MN29Mgx3fseKMLOdIzwqxg11s6j_vMz_zyGzUuT_I0M\"\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "get logged in user",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "b sdfsdfsd",
+                        "type": "text",
+                        "disabled": true
+                    }
+                ],
+                "url": {
+                    "raw": "{{url}}/api/auth/user",
+                    "host": ["{{url}}"],
+                    "path": ["api", "auth", "user"]
+                }
+            },
+            "response": [
+                {
+                    "name": "get logged in user",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "b sdfsdfsd",
+                                "type": "text",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{url}}/api/auth/user",
+                            "host": ["{{url}}"],
+                            "path": ["api", "auth", "user"]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "698"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"2ba-c7BlJ3wJ5GTKhaQk2wVQ3FRh6LU\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Thu, 30 Mar 2023 08:46:49 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"message\": \"got user successfully\",\n    \"count\": 1,\n    \"response\": {\n        \"id\": \"clfuts4u20000j7xs3pn5izod\",\n        \"fullName\": \"demo\",\n        \"email\": \"demo@g.com\",\n        \"gender\": \"male\",\n        \"avatar\": \"url of the file from s3 (optional)\",\n        \"city\": \"a city\",\n        \"deviceToken\": \"token-from-firebase-for-push-notification(optional)\",\n        \"dob\": \"2023-02-26T00:00:00.000Z\",\n        \"isEmailVerified\": false,\n        \"isActive\": true,\n        \"isVerified\": false,\n        \"lastLoggedIn\": \"2023-03-30T07:59:47.833Z\",\n        \"createdAt\": \"2023-03-30T07:59:47.833Z\",\n        \"updatedAt\": \"2023-03-30T07:59:47.833Z\",\n        \"roleSlug\": \"customer\",\n        \"role\": {\n            \"slug\": \"customer\",\n            \"title\": \"customer\",\n            \"description\": \"customers\",\n            \"canAccessCms\": false,\n            \"createdAt\": \"2023-03-30T07:59:47.833Z\",\n            \"updatedAt\": \"2023-03-30T07:59:47.833Z\",\n            \"permissions\": []\n        }\n    }\n}"
+                }
+            ]
+        },
+        {
+            "name": "health-check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{url}}/api/auth/",
+                    "host": ["{{url}}"],
+                    "path": ["api", "auth", ""]
+                }
+            },
+            "response": [
+                {
+                    "name": "health-check",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/api/auth/",
+                            "host": ["{{url}}"],
+                            "path": ["api", "auth", ""]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "html",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "text/html; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "92"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"5c-i8qX9vfQyuia27wZBMrMAJzfcCE\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Thu, 30 Mar 2023 07:34:53 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "Running app in development , https:false, TZ:Etc/UTC base url: http://localhost:4001... 🚀"
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "token",
+            "value": "access token paste in current value",
+            "type": "string"
+        }
+    ]
+}
